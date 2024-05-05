@@ -19,7 +19,7 @@ function App() {
 
   const addItem = (item, quantity) => { 
 
-    fetch('https://cgrf4m-8080.csb.app/api/list/new', { 
+    fetch('https://xs7dt8-8080.csb.app/api/list/new', { 
       method: 'POST', 
       body: JSON.stringify({ 
         item, 
@@ -38,8 +38,6 @@ function App() {
   } 
 
  
- 
-
   return ( 
     <div className="App"> 
       <header className="App-header"> 
