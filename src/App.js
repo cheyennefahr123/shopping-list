@@ -4,7 +4,8 @@ import ShoppingForm from './Components/ShoppingForm/ShoppingForm';
 import ShoppingList from './Components/ShoppingList/ShoppingList'; 
 
 function App() { 
-  const [shoppingList, setShoppingList] = useState([]); 
+  const [shoppingList, setShoppingList] = useState([]);
+   
   const loadData = () => { 
     fetch('https://xs7dt8-8080.csb.app/api/list') 
       .then(x => x.json()) 
@@ -31,10 +32,8 @@ function App() {
       }, 
       mode: 'cors', 
     }) 
-
       .then(x => x.json()) 
       .then(loadData); 
-
   } 
 
  
