@@ -29,7 +29,7 @@ function App() {
       headers: { 
         'Content-type': 'application/json; charset=UTF-8', 
       }, 
-      mode: 'cors' 
+      mode: 'cors', 
     }) 
 
       .then(x => x.json()) 
