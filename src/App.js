@@ -40,7 +40,7 @@ function App() {
   return ( 
     <div className="App"> 
       <header className="App-header"> 
-        <h1>Shopping List</h1> 
+        <h1>Shopping</h1> 
       </header> 
       <main> 
         <ShoppingForm addItem={addItem} /> 
