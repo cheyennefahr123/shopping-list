@@ -48,14 +48,34 @@ function App() {
       .then(loadData); 
   }
 
+  function updateItem(id, item, quantity) { 
+    fetch('https://xs7dt8-8080.csb.app/api/list/' + id, { 
+        method: "PUT", 
+        body: JSON.stringify({ 
+            item: item, 
+            quantity, 
+        }), 
+        headers: { 
+            "Content-type": "application/json; charset=UTF-8", 
+        }, 
+        mode: "cors", 
+    }) 
+        .then((x) => x.json()) 
+        .then(loadData); 
+
+} 
+
   return ( 
     <div className="App"> 
       <header className="App-header"> 
         <h1>Shopping List</h1> 
       </header> 
       <main> 
-        <ShoppingForm addItem={addItem} /> 
-        <ShoppingList items={shoppingList} deleteItem={deleteItem} /> 
+        <ShoppingForm submitItem={addItem} /> 
+        <ShoppingList 
+          items={shoppingList} 
+          deleteItem={deleteItem}
+          updateItem={updateItem} /> 
       </main> 
 
     </div> 

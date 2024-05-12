@@ -1,9 +1,14 @@
 import React, { useState } from 'react';  
 
-export default function ShoppingForm({ addItem }) { 
+export default function ShoppingForm({ 
+    submitItem,
+    submitButtonText = "Add", 
+    defaultItemName = "", 
+    defaultQuantity = "" 
+}) { 
     
-    const [item, setItem] = useState('');    
-    const [quantity, setQuantity] = useState(0);  
+    const [item, setItem] = useState(defaultItemName);    
+    const [quantity, setQuantity] = useState(defaultQuantity);  
 
     function handleItemChange(event) { 
         setItem(event.target.value); 
@@ -15,7 +20,9 @@ export default function ShoppingForm({ addItem }) {
 
     function handleSubmit(event) { 
         event.preventDefault(); 
-        addItem(item, quantity); 
+        submitItem(item, quantity);
+        setItem(""); 
+        setQuantity(""); 
     } 
 
     return ( 
@@ -37,7 +44,7 @@ export default function ShoppingForm({ addItem }) {
                 required 
                 min="0" 
                 onChange={handleQuantityChange} /> 
-            <button type="submit">Add</button> 
+            <button type="submit">{submitButtonText}</button> 
         </form> 
     ); 
 
