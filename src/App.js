@@ -4,8 +4,8 @@ import ShoppingForm from './Components/ShoppingForm/ShoppingForm';
 import ShoppingList from './Components/ShoppingList/ShoppingList'; 
 
 function App() { 
-  const [shoppingList, setShoppingList] = useState([]);
-   
+  const [shoppingList, setShoppingList] = useState([]); 
+
   const loadData = () => { 
     fetch('https://xs7dt8-8080.csb.app/api/list') 
       .then(x => x.json()) 
@@ -36,15 +36,26 @@ function App() {
       .then(loadData); 
   } 
 
- 
+  function deleteItem(id) {
+    fetch('https://xs7dt8-8080.csb.app/api/list/' + id, { 
+      method: 'DELETE', 
+      headers: { 
+        'Content-type': 'application/json; charset=UTF-8', 
+      }, 
+      mode: 'cors', 
+    }) 
+      .then(x => x.json()) 
+      .then(loadData); 
+  }
+
   return ( 
     <div className="App"> 
       <header className="App-header"> 
-        <h1>Shopping</h1> 
+        <h1>Shopping List</h1> 
       </header> 
       <main> 
         <ShoppingForm addItem={addItem} /> 
-        <ShoppingList items={shoppingList} /> 
+        <ShoppingList items={shoppingList} deleteItem={deleteItem} /> 
       </main> 
 
     </div> 
@@ -53,6 +64,5 @@ function App() {
 
 } 
 
- 
 
 export default App; 

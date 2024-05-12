@@ -1,19 +1,28 @@
 import React from 'react'; 
 
-function ShoppingItem(props) { 
-    return <li>{ props.item} ({props.quantity}) 
-    <button>DELETE</button></li>; 
+function ShoppingItem({ id, item, quantity, deleteItem}) {
+
+    function handleDelete(event) {
+        event.preventDefault();
+        deleteItem(id);
+    } 
+
+    return (
+    <li>
+        <span>{item} ({quantity})</span>
+        <button onClick={handleDelete}>DELETE</button>
+    </li>
+    ); 
 } 
 
- 
-
-export default function ShoppingList({ items }) { 
+export default function ShoppingList({ items, deleteItem }) { 
     const ItemsJsx = items.map(listItem =>  
         <ShoppingItem  
             key={listItem.id}  
             id={listItem.id} 
             item={listItem.item}  
-            quantity={listItem.quantity} /> 
+            quantity={listItem.quantity}
+            deleteItem={deleteItem} /> 
     ); 
 
     return <ul>{ItemsJsx}</ul>; 
