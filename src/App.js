@@ -1,7 +1,8 @@
 import './App.css'; 
 import React, {useState, useEffect} from 'react'; 
 import ShoppingForm from './Components/ShoppingForm/ShoppingForm'; 
-import ShoppingList from './Components/ShoppingList/ShoppingList'; 
+import ShoppingList from './Components/ShoppingList/ShoppingList';
+import 'bootstrap/dist/css/bootstrap.css'; 
 
 function App() { 
   const [shoppingList, setShoppingList] = useState([]); 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import ShoppingForm from "../ShoppingForm/ShoppingForm"; 
+import ShoppingForm from "../ShoppingForm/ShoppingForm";
+import 'bootstrap/dist/css/bootstrap.css';
 
 function ShoppingItem({ id, item, quantity, deleteItem, updateItem}) {
     

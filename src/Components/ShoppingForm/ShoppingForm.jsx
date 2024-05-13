@@ -1,4 +1,5 @@
-import React, { useState } from 'react';  
+import React, { useState } from 'react'; 
+import 'bootstrap/dist/css/bootstrap.css'; 
 
 export default function ShoppingForm({ 
     submitItem,
