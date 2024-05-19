@@ -30,7 +30,7 @@ export default function ShoppingForm({
 
     return (
         <form data-bs-theme="dark" className="shopping-form" action="#" method="POST" onSubmit={handleSubmit}> 
-        <h2>Add Your Item</h2>
+        <h3>Add Your Item</h3>
             <Row className="center row-cols-lg">
                 <Col className="margin-bottom flex-row"> 
                     <Label className="visually-hidden" htmlFor="item">Item</Label> 
