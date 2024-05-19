@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from 'reactstrap';
+import { Button, Col, Row } from 'reactstrap';
 import ShoppingForm from "../ShoppingForm/ShoppingForm";
 import 'bootstrap/dist/css/bootstrap.css';
 import './ShoppingList.css';
@@ -24,7 +24,7 @@ function ShoppingItem({ id, item, quantity, deleteItem, updateItem}) {
 
     } 
     const ReadOnlyJsx = ( 
-        <span> 
+        <span className="flex-row"> 
             {item} ( {quantity} ) 
         </span> 
     ); 
@@ -38,13 +38,17 @@ function ShoppingItem({ id, item, quantity, deleteItem, updateItem}) {
     );
 
     return (
-        <section>
-            <li>
-                {isEdit ? EditJsx : ReadOnlyJsx}
-                <Button color= "danger" onClick={handleDelete}>Delete</Button>
-                <Button color = "warning" onClick={handleEdit}>{isEdit ? "Cancel" : "Edit"} </Button>
+            <li className="shopping-item">
+                <Row className="row align-items-center">
+                    <Col>
+                        {isEdit ? EditJsx : ReadOnlyJsx}
+                    </Col>
+                    <Col className="flex-end">
+                        <Button color= "danger" onClick={handleDelete}>Delete</Button>
+                        <Button color = "warning" onClick={handleEdit}>{isEdit ? "Cancel" : "Edit"} </Button>
+                    </Col>
+                </Row>
             </li>
-        </section>
     ); 
 } 
 
@@ -60,10 +64,10 @@ export default function ShoppingList({ items, deleteItem, updateItem }) {
     ); 
 
     return (
-        <section>
-            <ul className="shopping-item-container">
-                {ItemsJsx}
-            </ul>
-        </section> 
+        <section className="shopping-list">
+                <ul>
+                   {ItemsJsx} 
+                </ul>
+        </section>  
     ); 
 } 
