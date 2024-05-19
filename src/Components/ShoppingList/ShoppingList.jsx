@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Button } from 'reactstrap';
 import ShoppingForm from "../ShoppingForm/ShoppingForm";
 import 'bootstrap/dist/css/bootstrap.css';
+import './ShoppingList.css';
 
 function ShoppingItem({ id, item, quantity, deleteItem, updateItem}) {
     
@@ -36,17 +38,19 @@ function ShoppingItem({ id, item, quantity, deleteItem, updateItem}) {
     );
 
     return (
-    <li>
-        {isEdit ? EditJsx : ReadOnlyJsx}
-        <button onClick={handleDelete}>DELETE</button>
-        <button onClick={handleEdit}>{isEdit ? "Cancel" : "EDIT"} </button>
-    </li>
+        <section>
+            <li>
+                {isEdit ? EditJsx : ReadOnlyJsx}
+                <Button color= "danger" onClick={handleDelete}>Delete</Button>
+                <Button color = "warning" onClick={handleEdit}>{isEdit ? "Cancel" : "Edit"} </Button>
+            </li>
+        </section>
     ); 
 } 
 
 export default function ShoppingList({ items, deleteItem, updateItem }) { 
     const ItemsJsx = items.map(listItem =>  
-        <ShoppingItem  
+        <ShoppingItem 
             key={listItem.id}  
             id={listItem.id} 
             item={listItem.item}  
@@ -55,5 +59,11 @@ export default function ShoppingList({ items, deleteItem, updateItem }) {
             updateItem={updateItem} /> 
     ); 
 
-    return <ul>{ItemsJsx}</ul>; 
+    return (
+        <section>
+            <ul className="shopping-item-container">
+                {ItemsJsx}
+            </ul>
+        </section> 
+    ); 
 } 
