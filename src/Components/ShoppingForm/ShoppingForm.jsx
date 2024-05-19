@@ -32,7 +32,7 @@ export default function ShoppingForm({
         <form data-bs-theme="dark" className="shopping-form" action="#" method="POST" onSubmit={handleSubmit}> 
         <h2>Add Your Item</h2>
             <Row className="center row-cols-lg">
-                <Col className="margin-bottom"> 
+                <Col className="margin-bottom flex-row"> 
                     <Label className="visually-hidden" htmlFor="item">Item</Label> 
                     <Input  
                         type="text" 
@@ -43,7 +43,7 @@ export default function ShoppingForm({
                         value={item} 
                         onChange={handleItemChange} /> 
                 </Col>
-                <Col className="margin-bottom">
+                <Col className="margin-bottom flex-row">
                     <Label className="visually-hidden" htmlFor="quantity">Quantity</Label> 
                     <Input  
                         type="number" 
@@ -55,8 +55,8 @@ export default function ShoppingForm({
                         min="0" 
                         onChange={handleQuantityChange} /> 
                     </Col>
-                <Col className="margin-bottom">
-                    <Button color="success" type="submit">{submitButtonText}</Button> 
+                <Col className="margin-bottom flex-row">
+                    <Button className="success" type="submit">{submitButtonText}</Button> 
                 </Col>
             </Row>
         </form> 

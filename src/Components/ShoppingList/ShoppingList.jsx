@@ -44,8 +44,8 @@ function ShoppingItem({ id, item, quantity, deleteItem, updateItem}) {
                         {isEdit ? EditJsx : ReadOnlyJsx}
                     </Col>
                     <Col className="flex-end">
-                        <Button color= "danger" onClick={handleDelete}>Delete</Button>
-                        <Button color = "warning" onClick={handleEdit}>{isEdit ? "Cancel" : "Edit"} </Button>
+                        <Button className= "danger" onClick={handleDelete}>Delete</Button>
+                        <Button className= "warning" onClick={handleEdit}>{isEdit ? "Cancel" : "Edit"} </Button>
                     </Col>
                 </Row>
             </li>

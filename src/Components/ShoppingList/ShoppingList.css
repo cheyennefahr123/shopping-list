@@ -20,12 +20,12 @@ Button {
     margin-right: auto;
     min-width: 250px;
     max-width: 650px;
-    border:2px solid rgb(0, 71, 171);
+    border:4px solid #03DAC6;
     padding: 15px;
 }
 
 .shopping-item {
-    border-bottom: 1px solid rgb(155, 155, 155);
+    border-bottom: 1px solid #CCCCCC;
     padding-bottom: 5px;
 }
 
@@ -41,7 +41,15 @@ Button {
     padding-right: 15px;
 }
 
-@media screen and (max-width: 372px) {
+.warning {
+    background-color: #BB85FC;
+}
+
+.danger {
+    background-color: #CF6679;
+}
+
+@media screen and (max-width: 490px) {
     .flex-row {
         display: block;
         padding-left: 0;
