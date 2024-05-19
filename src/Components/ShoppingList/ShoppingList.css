@@ -33,6 +33,7 @@ Button {
     display: flex;
     padding-left: 5px;
     min-width: 200px;
+    word-wrap: break-word;
 }
 
 .flex-end {
@@ -49,9 +50,11 @@ Button {
     background-color: #CF6679;
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 500px) {
     .flex-row {
         display: block;
         padding-left: 0;
+        text-align: left;
+    
     }
 }
